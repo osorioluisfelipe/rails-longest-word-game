@@ -1,0 +1,14 @@
+<%@letters_array.each do |letter|%>
+<h2 class='letters'><%=letter%></h2>
+<%end%>
+<br>
+<br>
+<p>What is the longest word you can find?</p>
+<p>
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters_array %>
+    <input type="text" name="word">
+    <input type="submit" value="Play">
+  </form>
+</p>
